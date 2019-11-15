@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Main = () => {
-    const [parsedNote, setParsedNote] = useState([]);
+const Main = ({parsedNote, setShouldUpdate}) => {
     const handleRemove = e => {
-        localStorage.removeItem(e.target.id)
+        localStorage.removeItem(e.target.id);
+        setShouldUpdate(true);
     }
-    // useEffect(() => {
-    //     setParsedNote(Object.values(localStorage).map(item => JSON.parse(item)));
-    // })
-
     return(
         <>
             {parsedNote.map(item => {

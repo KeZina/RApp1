@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import AddPost from './AddPost.js'
 
-const Header = () => {
-    const [trigger, setTrigger] = useState(false)
-
+const Header = ({trigger, setTrigger, setShouldUpdate}) => {
     return(
         <>
             <div id = "header-container">
@@ -21,7 +19,7 @@ const Header = () => {
                     </select>
                 </div>
             </div>
-            {trigger && <AddPost setTrigger = {setTrigger} />}
+            {trigger && <AddPost trigger = {trigger} setTrigger = {setTrigger} setShouldUpdate = {setShouldUpdate} />}
         </>
     )
 }

@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Header from './Header';
-import Main from './Main';
+import React from 'react';
+import Layout from './Layout';
 
 const App = () => {
   return (
     <div className="app-container">
-      <Header />
-      <Main />
+      <Layout />
     </div>
   );
 }
