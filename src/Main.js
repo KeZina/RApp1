@@ -1,15 +1,23 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { REMOVE_NOTE } from './action';
 
-const Main = ({parsedNote, setShouldUpdate}) => {
+const Main = () => {
+
+    const notesState = useSelector(state => state);
+    const dispatch = useDispatch();
+
     const handleRemove = e => {
         localStorage.removeItem(e.target.id);
-        setShouldUpdate(true);
+        dispatch(REMOVE_NOTE(e.target.id))
     }
+
+    
     return(
         <>
-            {parsedNote.map(item => {
+            {notesState.map(item => {
                 return(
-                    <div className = "main-container">
+                    <div className = "main-container" key = {item.title}>
                         <div className = "main-items">
                             <div className = "main-priority">
                                 <button className = "main-priority-inc-dec">-</button>

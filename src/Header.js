@@ -1,13 +1,16 @@
-import React from 'react';
-import AddPost from './AddPost.js'
+import React, {useState} from 'react';
+import AddPost from './AddPost'
 
-const Header = ({trigger, setTrigger, setShouldUpdate}) => {
+const Header = () => {
+    
+    const [trigger, setTrigger] = useState(false)
+
     return(
         <>
             <div id = "header-container">
                 <h1 id = "header-title">My notes:</h1> 
                 <div id = "header-subcontainer">
-                    <button className = "header-buttons" onClick = {() => setTrigger(!trigger)}>
+                    <button className = "header-buttons" onClick = {() => setTrigger(true)}>
                         Add note
                     </button>
                     <button className = "header-buttons">
@@ -19,7 +22,7 @@ const Header = ({trigger, setTrigger, setShouldUpdate}) => {
                     </select>
                 </div>
             </div>
-            {trigger && <AddPost trigger = {trigger} setTrigger = {setTrigger} setShouldUpdate = {setShouldUpdate} />}
+            {trigger && <AddPost setTrigger = {setTrigger} />}
         </>
     )
 }
