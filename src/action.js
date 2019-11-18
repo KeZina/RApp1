@@ -11,3 +11,15 @@ export const REMOVE_NOTE = (title) => {
         title,
     }
 }
+
+export const DATE_SORTING = () => {
+    return {
+        type: "DATE_SORTING",
+    }
+}
+
+export const PRIORITY_SORTING = () => {
+    return {
+        type: "PRIORITY_SORTING",
+    }
+}

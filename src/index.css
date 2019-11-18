@@ -129,6 +129,8 @@ code {
   margin-top: 2vh;
 }
 .main-items {
+  display: flex;
+  flex-direction: column;
   position: relative;
   min-height: 2vh;
   padding: 1vh 0;
@@ -148,21 +150,23 @@ code {
   font-size: 1.1rem;
   font-weight: 600;
 }
-.main-priority-inc-dec {
-  font-size: 1.2rem;
-  border: none;
-  background-color: inherit;
-  width: 1.2vw;
-  height: 2.4vh;
-  border-radius: 10em;
-  color: red;
-  outline: none;
+.main-date-container {
+  position: absolute;
+  right: .2vw;
+  top: .2vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-date-h6 {
+  display: inline-block;
+  margin: 0;
 }
 .main-button {
   color: rgb(72, 247, 247);
   font-weight: 600;
-  min-width: 5vw;
+  min-width: 8vw;
   height: 3vh;
+  margin-top: 1vh;
   background-color: rgb(42, 42, 42);
   border: none;
 }

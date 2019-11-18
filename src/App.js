@@ -13,6 +13,10 @@ const reducer = (state = initialState, action) => {
       return [...state, action.note];
     case "REMOVE_NOTE":
       return [...state.filter(item => item.title !== action.title)];
+    case "DATE_SORTING":
+      return [...state].sort((a, b) => b.date - a.date);
+    case "PRIORITY_SORTING":
+      return [...state].sort((a, b) => b.priority - a.priority);
     default:
       return state;
   }

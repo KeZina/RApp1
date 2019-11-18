@@ -1,19 +1,21 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ADD_NOTE } from './action';
 
 const AddPost = ({setTrigger}) => {
 
-    const notesState = useSelector(state => state);
     const dispatch = useDispatch();
 
-    console.log(notesState)
+    const handlePriority = e => {
+        e.preventDefault()
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
         const formValues = {
             title: e.target.children[0].children[1].value,
             priority: e.target.children[1].children[1].value || 0,
+            date: Date.now(),
             note: e.target.children[2].children[1].value,
             
         }
@@ -29,11 +31,23 @@ const AddPost = ({setTrigger}) => {
                 <form id = "add-post-form" onSubmit = {handleSubmit}>
                     <label>
                         <h2>Title:</h2>
-                        <input type = 'text' className = "add-post-inner" maxLength = "60" placeholder = "Title of note" required />
+                        <input
+                            type = 'text'
+                            className = "add-post-inner"
+                            maxLength = "60"
+                            placeholder = "Title of note"
+                            required />
                     </label>
                     <label>
                         <h2>Priority:</h2>
-                        <input type = 'text' className = "add-post-inner" maxLength = "3" id = "add-post-priority" placeholder = "Priority number" />
+                        <input
+                            type = 'number'
+                            className = "add-post-inner"
+                            min = "0"
+                            max = "99"
+                            id = "add-post-priority"
+                            placeholder = "Priority number"
+                            onKeyPress = {handlePriority} />
                     </label>
                     <label>
                         <h2>Note:</h2>
